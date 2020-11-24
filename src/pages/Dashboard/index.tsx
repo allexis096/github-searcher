@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
         <span>#allexis096</span>
         <a href="/">
           <span>Sair</span>
-          <FiLogOut color="#D03434" />
+          <FiLogOut color="#D03434" size={20} />
         </a>
       </Header>
       <div>
