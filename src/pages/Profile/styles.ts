@@ -18,6 +18,11 @@ export const Container = styled.div`
       top: 65px;
     }
   }
+
+  @media (min-width: 900px) {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 `;
 
 export const Header = styled.header`
@@ -52,6 +57,11 @@ export const Header = styled.header`
       opacity: 0.8;
     }
   }
+
+  @media (min-width: 900px) {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 `;
 
 export const Info = styled.section`
@@ -73,6 +83,12 @@ export const Info = styled.section`
   span {
     margin-left: 15px;
     display: block;
+  }
+
+  @media (min-width: 900px) {
+    main {
+      margin-top: 50px;
+    }
   }
 `;
 
