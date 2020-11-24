@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (min-width: 900px) {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+`;
 
 export const Header = styled.header`
   display: flex;
@@ -9,6 +14,7 @@ export const Header = styled.header`
   height: 68px;
   background-color: #1f1f1f;
   font-weight: bold;
+  position: relative;
 
   > svg {
     position: absolute;
@@ -26,6 +32,7 @@ export const CardFollowing = styled.section`
   main {
     display: flex;
     align-items: center;
+    position: relative;
 
     div {
       height: 42px;
