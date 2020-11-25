@@ -1,54 +1,62 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiLogOut } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
+import { useUsers } from '../../hooks/users';
 
 import { Container, Header, Info, InfoNumbers, Bio } from './styles';
 
 const Dashboard: React.FC = () => {
+  const { user } = useUsers();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!localStorage.getItem('GithubUser')) {
+      history.push('/');
+    }
+  }, [history]);
+
   return (
     <Container>
       <Header>
-        <span>#allexis096</span>
-        <a href="/">
+        <span>#{user.login}</span>
+        <Link to="/" onClick={() => localStorage.removeItem('GithubUser')}>
           <span>Sair</span>
           <FiLogOut color="#D03434" size={20} />
-        </a>
+        </Link>
       </Header>
       <div>
-        <img src="https://github.com/allexis096.png" alt="profile" />
+        <img src={user.avatar_url} alt="profile" />
       </div>
       <Info>
         <main>
           <div />
-          <h1>Allexis Figueiredo</h1>
+          <h1>{user.name}</h1>
         </main>
-        <span>allexis@gmail.com</span>
-        <span>Saquarema - RJ</span>
+        <span>{user.email}</span>
+        <span>{user.location}</span>
       </Info>
       <InfoNumbers>
-        <div>
-          <h1>32</h1>
+        <Link to="/followers">
+          <h1>{user.followers}</h1>
           <strong>Seguidores</strong>
-        </div>
+        </Link>
 
-        <div>
-          <h1>32</h1>
+        <Link to="/following">
+          <h1>{user.following}</h1>
           <strong>Seguindo</strong>
-        </div>
+        </Link>
 
-        <div>
-          <h1>10</h1>
+        <Link to="/repos">
+          <h1>{user.public_repos}</h1>
           <strong>Repos</strong>
-        </div>
+        </Link>
       </InfoNumbers>
       <Bio>
         <main>
           <div />
           <h1>Bio</h1>
         </main>
-        <p>
-          An instructor focused on helping people start programming for web -
-          #html #css #javascript #sql #react #nodejs #fullstack
-        </p>
+        <p>{user.bio}</p>
       </Bio>
     </Container>
   );
