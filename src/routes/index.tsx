@@ -7,15 +7,17 @@ import Repos from '../pages/Repos';
 import Followers from '../pages/Followers';
 import Following from '../pages/Following';
 import Profile from '../pages/Profile';
+import { PrivateRoute } from './PrivateRoute';
 
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Login} />
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/repos" component={Repos} />
-    <Route path="/followers" component={Followers} />
-    <Route path="/following" component={Following} />
-    <Route path="/profile" component={Profile} />
+
+    <PrivateRoute path="/dashboard" component={Dashboard} />
+    <PrivateRoute path="/repos" component={Repos} />
+    <PrivateRoute path="/followers" component={Followers} />
+    <PrivateRoute path="/following" component={Following} />
+    <PrivateRoute path="/profile" component={Profile} />
   </Switch>
 );
 
