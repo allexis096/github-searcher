@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FiLogOut } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/users';
 
 import { Container, Header, Info, InfoNumbers, Bio } from './styles';
 
 const Dashboard: React.FC = () => {
   const { user } = useUsers();
-  const history = useHistory();
-
-  useEffect(() => {
-    if (!localStorage.getItem('GithubUser')) {
-      history.push('/');
-    }
-  }, [history]);
 
   return (
     <Container>
