@@ -18,13 +18,6 @@ const Dashboard: React.FC = () => {
         icon={FiLogOut}
         color="#D03434"
       />
-      {/* <Header>
-        <span>#{user.login}</span>
-        <Link to="/" onClick={() => localStorage.removeItem('GithubUser')}>
-          <span>Sair</span>
-          <FiLogOut color="#D03434" size={20} />
-        </Link>
-      </Header> */}
       <div>
         <img src={user.avatar_url} alt="profile" />
       </div>
