@@ -43,7 +43,16 @@ export const UsersProvider: React.FC = ({ children }) => {
   });
 
   const [newUser, setNewUser] = useState('');
-  const [profile, setProfile] = useState<User>({} as User);
+
+  const [profile, setProfile] = useState<User>(() => {
+    const userStorage = localStorage.getItem('GithubUpdatedUser');
+
+    if (userStorage) {
+      return JSON.parse(userStorage);
+    }
+
+    return {} as User;
+  });
 
   return (
     <UsersContext.Provider
