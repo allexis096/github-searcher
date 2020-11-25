@@ -17,6 +17,7 @@ const Profile: React.FC = () => {
   }, [history, newUser, setProfile]);
 
   const handleSave = useCallback(async () => {
+    localStorage.removeItem('GithubUpdatedUser');
     localStorage.removeItem('GithubUser');
 
     const response = await api.get(`users/${newUser}`);
