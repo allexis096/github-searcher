@@ -2,10 +2,11 @@ import React, { useCallback, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FiLogIn } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
+import Header from '../../components/Header';
 import { useUsers } from '../../hooks/users';
 import api from '../../services/api';
 
-import { Container, Header, Info, InfoNumbers, Bio } from './styles';
+import { Container, Info, InfoNumbers, Bio } from './styles';
 
 const Profile: React.FC = () => {
   const { profile, newUser, setProfile, setUser } = useUsers();
@@ -29,13 +30,13 @@ const Profile: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <span>#{profile.login}</span>
-        <Link to="/" onClick={handleSave}>
-          <span>Salvar</span>
-          <FiLogIn color="#5CBC29" size={20} />
-        </Link>
-      </Header>
+      <Header
+        login={profile.login}
+        text="Salvar"
+        clickText={handleSave}
+        icon={FiLogIn}
+        color="#5CBC29"
+      />
       <div>
         <img src={profile.avatar_url} alt="profile" />
       </div>

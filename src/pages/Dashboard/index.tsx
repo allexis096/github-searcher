@@ -2,21 +2,29 @@ import React from 'react';
 import { FiLogOut } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/users';
+import Header from '../../components/Header';
 
-import { Container, Header, Info, InfoNumbers, Bio } from './styles';
+import { Container, Info, InfoNumbers, Bio } from './styles';
 
 const Dashboard: React.FC = () => {
   const { user } = useUsers();
 
   return (
     <Container>
-      <Header>
+      <Header
+        login={user.login}
+        text="Sair"
+        clickText={() => localStorage.removeItem('GithubUser')}
+        icon={FiLogOut}
+        color="#D03434"
+      />
+      {/* <Header>
         <span>#{user.login}</span>
         <Link to="/" onClick={() => localStorage.removeItem('GithubUser')}>
           <span>Sair</span>
           <FiLogOut color="#D03434" size={20} />
         </Link>
-      </Header>
+      </Header> */}
       <div>
         <img src={user.avatar_url} alt="profile" />
       </div>
