@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
+import InfoHeader from '../../components/InfoHeader';
 import { useUsers } from '../../hooks/users';
 import api from '../../services/api';
 
-import { Container, Header, CardFollowing } from './styles';
+import { Container, CardFollowing } from './styles';
 
 interface FollowingProps {
   id: number;
@@ -32,12 +33,7 @@ const Following: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <Link to="/dashboard">
-          <FaArrowLeft size={20} />
-        </Link>
-        <span>{user.following} seguindo</span>
-      </Header>
+      <InfoHeader text={`${user.following} seguindo`} />
       {following.map(follow => (
         <CardFollowing key={follow.id}>
           <main>

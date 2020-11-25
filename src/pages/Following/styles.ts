@@ -7,32 +7,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 68px;
-  background-color: #1f1f1f;
-  font-weight: bold;
-  position: relative;
-
-  a {
-    color: #fff;
-    display: flex;
-    align-items: center;
-
-    > svg {
-      position: absolute;
-      left: 10px;
-    }
-
-    transition: 0.3s;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-`;
-
 export const CardFollowing = styled.section`
   margin: 30px 0;
   padding-bottom: 30px;

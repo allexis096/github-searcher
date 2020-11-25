@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
 import { FiLock, FiStar, FiUnlock } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import InfoHeader from '../../components/InfoHeader';
 import { useUsers } from '../../hooks/users';
 import api from '../../services/api';
 
-import { Container, Header, CardRepo, AdditionalInfo } from './styles';
+import { Container, CardRepo, AdditionalInfo } from './styles';
 
 interface ReposProps {
   id: number;
@@ -27,12 +27,7 @@ const Repos: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <Link to="/dashboard">
-          <FaArrowLeft size={20} />
-        </Link>
-        <span>{user.public_repos} repositórios</span>
-      </Header>
+      <InfoHeader text={`${user.public_repos} repositórios`} />
       {repos.map(repo => (
         <CardRepo key={repo.id}>
           <main>
