@@ -16,9 +16,20 @@ export const Header = styled.header`
   font-weight: bold;
   position: relative;
 
-  > svg {
-    position: absolute;
-    left: 10px;
+  a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    > svg {
+      position: absolute;
+      left: 10px;
+    }
+
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `;
 
@@ -50,9 +61,17 @@ export const CardFollower = styled.section`
       margin-right: 30px;
     }
 
-    svg {
-      position: absolute;
-      right: 20px;
+    a {
+      color: #fff;
+      svg {
+        position: absolute;
+        right: 20px;
+      }
+
+      transition: 0.3s;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `;
