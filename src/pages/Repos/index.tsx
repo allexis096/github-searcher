@@ -20,10 +20,6 @@ const Repos: React.FC = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!localStorage.getItem('GithubUser')) {
-      history.push('/');
-    }
-
     api
       .get(`/users/${user.login}/repos`)
       .then(response => setRepos(response.data));
