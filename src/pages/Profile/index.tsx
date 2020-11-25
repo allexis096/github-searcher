@@ -1,54 +1,74 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { FiLogIn } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
+import { useUsers } from '../../hooks/users';
+import api from '../../services/api';
 
 import { Container, Header, Info, InfoNumbers, Bio } from './styles';
 
 const Profile: React.FC = () => {
+  const { profile, newUser, setProfile, setUser } = useUsers();
+  const history = useHistory();
+
+  useEffect(() => {
+    api.get(`users/${newUser}`).then(response => setProfile(response.data));
+  }, [history, newUser, setProfile]);
+
+  const handleSave = useCallback(async () => {
+    localStorage.removeItem('GithubUser');
+
+    const response = await api.get(`users/${newUser}`);
+
+    localStorage.setItem('GithubUser', JSON.stringify(response.data));
+
+    setUser(response.data);
+
+    history.push('/dashboard');
+  }, [newUser, setUser, history]);
+
   return (
     <Container>
       <Header>
-        <span>#allexis096</span>
-        <a href="/">
+        <span>#{profile.login}</span>
+        <Link to="/" onClick={handleSave}>
           <span>Salvar</span>
           <FiLogIn color="#5CBC29" size={20} />
-        </a>
+        </Link>
       </Header>
       <div>
-        <img src="https://github.com/allexis096.png" alt="profile" />
+        <img src={profile.avatar_url} alt="profile" />
       </div>
       <Info>
         <main>
           <div />
-          <h1>Allexis Figueiredo</h1>
+          <h1>{profile.name}</h1>
         </main>
-        <span>allexis@gmail.com</span>
-        <span>Saquarema - RJ</span>
+        <span>{profile.email}</span>
+        <span>{profile.location}</span>
       </Info>
       <InfoNumbers>
-        <div>
-          <h1>32</h1>
+        <Link to="/followers">
+          <h1>{profile.followers}</h1>
           <strong>Seguidores</strong>
-        </div>
+        </Link>
 
-        <div>
-          <h1>32</h1>
+        <Link to="/following">
+          <h1>{profile.following}</h1>
           <strong>Seguindo</strong>
-        </div>
+        </Link>
 
-        <div>
-          <h1>10</h1>
+        <Link to="/repos">
+          <h1>{profile.public_repos}</h1>
           <strong>Repos</strong>
-        </div>
+        </Link>
       </InfoNumbers>
       <Bio>
         <main>
           <div />
           <h1>Bio</h1>
         </main>
-        <p>
-          An instructor focused on helping people start programming for web -
-          #html #css #javascript #sql #react #nodejs #fullstack
-        </p>
+        <p>{profile.bio}</p>
       </Bio>
     </Container>
   );

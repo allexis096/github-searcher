@@ -97,7 +97,9 @@ export const InfoNumbers = styled.section`
   background-color: #5252525d;
   padding: 10px 0;
 
-  > div {
+  > a {
+    color: #fff;
+    text-decoration: none;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -105,6 +107,11 @@ export const InfoNumbers = styled.section`
 
     h1 {
       font-size: 36px;
+    }
+
+    transition: color 0.3s;
+    &:hover {
+      color: #ffce00;
     }
   }
 `;
