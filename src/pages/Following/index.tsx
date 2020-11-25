@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
+import CardFollow from '../../components/CardFollow';
 import InfoHeader from '../../components/InfoHeader';
 import { useUsers } from '../../hooks/users';
 import api from '../../services/api';
 
-import { Container, CardFollowing } from './styles';
+import { Container } from './styles';
 
 interface FollowingProps {
   id: number;
@@ -35,16 +36,12 @@ const Following: React.FC = () => {
     <Container>
       <InfoHeader text={`${user.following} seguindo`} />
       {following.map(follow => (
-        <CardFollowing key={follow.id}>
-          <main>
-            <div />
-            <img src={follow.avatar_url} alt="profile" />
-            <strong>#{follow.login}</strong>
-            <Link to="/profile" onClick={() => handleClick(follow.login)}>
-              <FaArrowRight size={20} />
-            </Link>
-          </main>
-        </CardFollowing>
+        <CardFollow
+          key={follow.id}
+          avatar={follow.avatar_url}
+          login={follow.login}
+          linkClick={() => handleClick(follow.login)}
+        />
       ))}
     </Container>
   );
