@@ -16,9 +16,20 @@ export const Header = styled.header`
   font-weight: bold;
   position: relative;
 
-  > svg {
-    position: absolute;
-    left: 10px;
+  a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    > svg {
+      position: absolute;
+      left: 10px;
+    }
+
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.6;
+    }
   }
 `;
 
