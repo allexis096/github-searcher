@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
 import { useUsers } from '../../hooks/users';
@@ -6,26 +6,29 @@ import api from '../../services/api';
 
 import { Container, Header, CardFollower } from './styles';
 
-interface GitUserProps {
+interface FollowerProps {
   id: number;
   login: string;
   avatar_url: string;
 }
 
 const Followers: React.FC = () => {
-  const { user } = useUsers();
-  const [followers, setFollowers] = useState<GitUserProps[]>([]);
+  const { user, setNewUser } = useUsers();
+  const [followers, setFollowers] = useState<FollowerProps[]>([]);
   const history = useHistory();
 
   useEffect(() => {
-    if (!localStorage.getItem('GithubUser')) {
-      history.push('/');
-    }
-
     api
       .get(`/users/${user.login}/followers`)
       .then(response => setFollowers(response.data));
   }, [history, user.login]);
+
+  const handleClick = useCallback(
+    (githubUser: string) => {
+      setNewUser(githubUser);
+    },
+    [setNewUser],
+  );
 
   return (
     <Container>
@@ -33,7 +36,7 @@ const Followers: React.FC = () => {
         <Link to="/dashboard">
           <FaArrowLeft size={20} />
         </Link>
-        <span>10 seguidores</span>
+        <span>{user.followers} seguidores</span>
       </Header>
       {followers.map(follower => (
         <CardFollower key={follower.id}>
@@ -41,13 +44,9 @@ const Followers: React.FC = () => {
             <div />
             <img src={follower.avatar_url} alt="profile" />
             <strong>#{follower.login}</strong>
-            <a
-              href={`https://github.com/${follower.login}`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link to="/profile" onClick={() => handleClick(follower.login)}>
               <FaArrowRight size={20} />
-            </a>
+            </Link>
           </main>
         </CardFollower>
       ))}
