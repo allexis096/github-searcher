@@ -26,6 +26,13 @@ const Followers: React.FC = () => {
 
   const handleClick = useCallback(
     (githubUser: string) => {
+      api.get(`users/${githubUser}`).then(response => {
+        localStorage.setItem(
+          'GithubUpdatedUser',
+          JSON.stringify(response.data),
+        );
+      });
+
       setNewUser(githubUser);
     },
     [setNewUser],
