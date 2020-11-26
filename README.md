@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+<p align="center"><img  alt="Github Searcher" src="https://imgur.com/UMqwir3.png" width="400" /></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
 
-## Available Scripts
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/allexis096/github-searcher">
 
-In the project directory, you can run:
+<img alt="Repository size" src="https://img.shields.io/github/repo-size/allexis096/github-searcher">
 
-### `yarn start`
+<a href="https://github.com/allexis096/github-searcher/graphs/commit-activity">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/allexis096/github-searcher?color=blue%22">
+</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?color=blue">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
 
-### `yarn test`
+<a href="https://reactjs.org/">
+  <img alt="ReactJS" src="https://img.shields.io/static/v1?color=blue&label=React&message=JS&?style=plastic&logo=React">
+</a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://www.typescriptlang.org/">
+  <img alt="Typescript" src="https://img.shields.io/static/v1?color=blue&label=Typescript&message=JS&?style=plastic&logo=Typescript">
+</a>
 
-### `yarn build`
+</p>
+<h2 align="center">
+  Github Searcher
+</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">A GithubSearcher from Github API.</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏁 About the app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Put the user and click on button to search. If you'll don't put any word or nonexistent user, you'll get error.
 
-### `yarn eject`
+When have the response, You'll have four options: Click in 'Sair" to logout, and three options on center page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The pages are connected with Context API to use the same information.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🔨 Techs:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [ReactJS][reactjs]
+- [TypeScript][typescript]
+- [Styled Components][styledcomponents]
+- [Axios][axios]
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 How to run this project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To clone and execute the app, you'll need [Git](https://git-scm.com) and [NodeJs][nodejs] installed in your PC.
+
+### 🌀 Cloning the repository
+
+```bash
+# Clone this repo
+$ git clone https://github.com/allexis096/github-searcher.git
+
+# Access the folder via terminal
+$ cd github-searcher
+
+# Install the dependencies
+$ yarn
+```
+
+### 🧭 Running the app
+
+```bash
+# Execute a Aplicação
+$ yarn start
+
+# The server will be inicializing on port:3000 - http://localhost:3000
+```
+
+Made with ❤️ by Allexis Figueiredo 👋🏽 [Contact me!](https://www.linkedin.com/in/allexis-figueiredo/)
+
+[nodejs]: https://nodejs.org/en/
+[license]: https://opensource.org/licenses/MIT
+[reactjs]: https://reactjs.org/
+[axios]: https://www.npmjs.com/package/axios
+[license]: https://opensource.org/licenses/MIT
+[typescript]: https://www.typescriptlang.org/
+[styledcomponents]: https://styled-components.com/
